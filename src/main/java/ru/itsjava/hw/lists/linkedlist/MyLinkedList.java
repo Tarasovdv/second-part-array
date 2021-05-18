@@ -56,7 +56,30 @@ public class MyLinkedList {
     }
 
     public boolean remove(Object o) {
-        return false;
+        if (head == null) return false; //проверка на null (если список пуст, то удалять не надо)
+
+        if (head.getValue().equals(o)) { // если есть совпадение, то присвоить хэду ссылку на след.элемент(сместить дальше)
+            head = head.getNext();
+            return true;
+        }
+        if (head.getNext() == null) { // проверка, есть ли след.элемент после хэда. если бы эл-т был в списке, то уже нашли и удалили
+            return false;
+        }
+
+        Node curNode = head; // текущему эл-ту присвоим хэд
+        Node prevNode = head; // предыдущему присвоим хэд
+
+        while ((curNode = curNode.getNext()) != null) { // бежим до тех пор пока не упремся в налл.
+            if (curNode.getValue().equals(o)) { // если есть совпадение, заканчиваем бежать
+                break;
+            }
+            prevNode = prevNode.getNext(); //иначе передвигаем и предыдущую точку
+        }
+        if (curNode == null) return false; // проверка на налл, если мы добежали до конца списка
+
+        prevNode.setNext(curNode.getNext());//перенаправили ссылку с преда на элемент идущий после удаляемого
+        curNode.setNext(null); //обнуляем ссылку удаляемого
+        return true;
     }
 
     public void clear() {
@@ -64,11 +87,36 @@ public class MyLinkedList {
     }
 
     public Object get(int index) {
+        checkIndex(index);
+        if (index == 0) {
+            return head;
+        } else {
+            int count = 0;
+            Node curNode = head;
+            while ((curNode = curNode.getNext()) != null) {
+                count++;
+                if (count == index) {
+                    return curNode;
+                }
+            }
+        }
         return null;
     }
 
-    public Object set(int index, Object element) {
-        return null;
+    public void set(int index, Object element) {
+        checkIndex(index);
+        if (index == 0) {
+            head.setValue(element);
+        } else {
+            int count = 0;
+            Node curNode = head;
+            while ((curNode = curNode.getNext()) != null) {
+                count++;
+                if (count == index) {
+                    curNode.setValue(element);
+                }
+            }
+        }
     }
 
     public void add(int index, Object element) {
