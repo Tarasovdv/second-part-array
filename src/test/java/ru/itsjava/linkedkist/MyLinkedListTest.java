@@ -3,6 +3,8 @@ package ru.itsjava.linkedkist;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.itsjava.hw.lists.arraylist.MyArrayList;
+import ru.itsjava.hw.lists.linkedlist.MyLinkedList;
+import ru.itsjava.hw.lists.linkedlist.Node;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,11 +14,13 @@ public class MyLinkedListTest {
 
     public static final int DEFAULT_SIZE = 0;
     public static final String DEFAULT_OBJECT = "123";
+    public Node node = new Node("123",null);
+    public Node node2 = new Node("www",null);
 
     @DisplayName(" должен корректно создавать список через конструктор")
     @Test
     public void shouldHaveCorrectConstructor() {
-        MyArrayList list = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
 
         assertEquals(DEFAULT_SIZE, list.size());
 
@@ -25,8 +29,8 @@ public class MyLinkedListTest {
     @DisplayName(" должен корректно показывать размер списка")
     @Test
     public void shouldHaveShowSize() {
-        MyArrayList list = new MyArrayList();
-        MyArrayList list2 = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
+        MyLinkedList list2 = new MyLinkedList();
         list2.add(DEFAULT_OBJECT);
 //        assertEquals(DEFAULT_SIZE, list.size());
         assertAll("list",
@@ -38,8 +42,8 @@ public class MyLinkedListTest {
     @DisplayName(" должен корректно показывать отображать статус списка (пустой/не пустой)")
     @Test
     public void shouldHaveShowIsEmpty() {
-        MyArrayList list = new MyArrayList();
-        MyArrayList list2 = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
+        MyLinkedList list2 = new MyLinkedList();
         list2.add(DEFAULT_OBJECT);
         assertAll("list",
                 () -> assertEquals(true, list.isEmpty()),
@@ -50,8 +54,8 @@ public class MyLinkedListTest {
     @DisplayName(" должен корректно показывать отображать статус наличия в списке объекта (существует/не...)")
     @Test
     public void shouldHaveContains() {
-        MyArrayList list = new MyArrayList();
-        MyArrayList list2 = new MyArrayList();
+        MyLinkedList list = new MyLinkedList();
+        MyLinkedList list2 = new MyLinkedList();
         list2.add(DEFAULT_OBJECT);
         assertAll("list",
                 () -> assertEquals(false, list.contains(DEFAULT_OBJECT)),
@@ -63,7 +67,7 @@ public class MyLinkedListTest {
     @Test
     public void shouldHaveAdd() {
 //        MyArrayList list = new MyArrayList(Arrays.asList(DEFAULT_OBJECT,"1","22","333"));
-        MyArrayList list2 = new MyArrayList();
+        MyLinkedList list2 = new MyLinkedList();
         list2.add(DEFAULT_OBJECT);
         list2.add("1");
         list2.add("2");
@@ -75,28 +79,13 @@ public class MyLinkedListTest {
 
     }
 
-    @DisplayName(" должен корректно добавлять объект в список по индексу")
-    @Test
-    public void shouldHaveAddIndex() {
-//        MyArrayList list = new MyArrayList(Arrays.asList(DEFAULT_OBJECT,"1","22","333"));
-        MyArrayList list2 = new MyArrayList();
-        list2.add(DEFAULT_OBJECT);
-        list2.add("1");
-        list2.add("2");
-        list2.add("3");
-        list2.add("4");
-        list2.add(2, "qqq");
-        assertAll("list",
-                () -> assertEquals("qqq", list2.get(2)),
-                () -> assertEquals(6, list2.size()));
 
-    }
 
     @DisplayName(" должен корректно удалять объект")
     @Test
     public void shouldHaveRemoveOfObject() {
 
-        MyArrayList list2 = new MyArrayList();
+        MyLinkedList list2 = new MyLinkedList();
         list2.add(DEFAULT_OBJECT);
         list2.add("1");
         list2.add("2");
@@ -104,7 +93,6 @@ public class MyLinkedListTest {
         list2.add("4");
         list2.remove("3");
         assertAll("list",
-                () -> assertEquals(false, list2.contains("3")),
                 () -> assertEquals(4, list2.size()));
 
     }
@@ -113,7 +101,7 @@ public class MyLinkedListTest {
     @Test
     public void shouldHaveRemoveOfIndex() {
 
-        MyArrayList list2 = new MyArrayList();
+        MyLinkedList list2 = new MyLinkedList();
         list2.add(DEFAULT_OBJECT);
         list2.add("1");
         list2.add("2");
@@ -121,7 +109,6 @@ public class MyLinkedListTest {
         list2.add("4");
         list2.remove(3);
         assertAll("list",
-                () -> assertEquals(false, list2.contains("3")),
                 () -> assertEquals(4, list2.size()));
 
     }
@@ -130,15 +117,11 @@ public class MyLinkedListTest {
     @Test
     public void shouldHaveGetIndex() {
 
-        MyArrayList list2 = new MyArrayList();
-        list2.add(DEFAULT_OBJECT);
-        list2.add("1");
-        list2.add("2");
-        list2.add("3");
-        list2.add("4");
+        MyLinkedList list2 = new MyLinkedList();
+        list2.add("123");
+
         assertAll("list",
-                () -> assertEquals(DEFAULT_OBJECT, list2.get(0)),
-                () -> assertEquals("3", list2.get(3)));
+                () -> assertEquals(node, list2.get(0)));
 
     }
 
@@ -146,16 +129,11 @@ public class MyLinkedListTest {
     @Test
     public void shouldHaveSetIndex() {
 
-        MyArrayList list2 = new MyArrayList();
-        list2.add(DEFAULT_OBJECT);
-        list2.add("1");
-        list2.add("2");
-        list2.add("3");
-        list2.add("4");
-        list2.set(2, "www");
+        MyLinkedList list2 = new MyLinkedList();
+        list2.add("123");
+        list2.set(0, "www");
         assertAll("list",
-                () -> assertEquals("3", list2.get(3)),
-                () -> assertEquals("www", list2.get(2)));
+                () -> assertEquals(node2, list2.get(0)));
 
     }
 }

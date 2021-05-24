@@ -31,8 +31,9 @@ public class MyLinkedList {
         } else {
             Node curNode = head;
             while (curNode.getNext() != null) {
-                if (head.getValue().equals(o)) {
+                if (o.equals(head.getValue())) {
                     return true;
+
                 } else {
                     curNode = curNode.getNext();
                 }
@@ -119,9 +120,6 @@ public class MyLinkedList {
         }
     }
 
-    public void add(int index, Object element) {
-
-    }
 
     // СТРОКА1 -> СТРОКА2 -> СТРОКА3 -> null
     // СТРОКА1 ->  null
