@@ -132,10 +132,20 @@ public class MyArrayList {
     }
 
     public int indexOf(Object o) {
-        return 0;
+        for (int i = 0; i < array.length; i++) {
+            if (o.equals(array[i])) return i;
+        }
+
+        return -1;
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        for (int i = array.length - 1; i >= 0; i--) {
+            if (o.equals(array[i])) return i;
+        }
+
+        return -1;
+
+
     }
 }

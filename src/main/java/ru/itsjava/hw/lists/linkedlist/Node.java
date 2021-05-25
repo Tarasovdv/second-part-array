@@ -9,5 +9,5 @@ public class Node {
 
     private Object value;
     private Node next;
-
 }
+

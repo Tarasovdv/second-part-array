@@ -10,9 +10,9 @@ public class MyArrayListPractice {
 
         Person d = new Person("D",0,"m");
         System.out.println(list.size());
-        list.add("hi,");
-        list.add("by,");
-        list.add("pie,");
+        list.add("hi");
+        list.add("hi");
+        list.add("pie");
         list.add("bye");
         System.out.println("list = " + list);
 
@@ -20,6 +20,9 @@ public class MyArrayListPractice {
         System.out.println("list = " + list);
         list.set(1,"www");
         System.out.println("list = " + list);
+        System.out.println("list.indexOf(\"hi\") = " + list.indexOf("hi"));
+        System.out.println("list.lastIndexOf(\"hi\") = " + list.lastIndexOf("hi"));
+
 
 //        System.out.println("list.size() = " + list.size());
 //        System.out.println("list = " + list);

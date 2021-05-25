@@ -152,6 +152,40 @@ public class MyArrayListTest {
 
     }
 
+    @DisplayName(" должен корректно возвращать индекс первого вхождения объекта")
+    @Test
+    public void shouldHaveGetIndexOf(){
+
+        MyArrayList list2 = new MyArrayList();
+        list2.add("1");
+        list2.add("2");
+        list2.add("2");
+        list2.add("3");
+        assertAll("list",
+                ()-> assertEquals(1,list2.indexOf("2")),
+                ()-> assertEquals(-1,list2.indexOf("4")));
+
+
+
+    }
+
+    @DisplayName(" должен корректно возвращать индекс последнего вхождения объекта")
+    @Test
+    public void shouldHaveGetLastIndexOf(){
+
+        MyArrayList list2 = new MyArrayList();
+        list2.add("1");
+        list2.add("2");
+        list2.add("2");
+        list2.add("3");
+        assertAll("list",
+                ()-> assertEquals(2,list2.lastIndexOf("2")),
+                ()-> assertEquals(-1,list2.indexOf("4")));
+
+
+
+    }
+
 
 
 

@@ -171,9 +171,23 @@ public class MyLinkedList {
         }
     }
 
-    public int indexOf(Object o) {
-        return 0;
-    }
+//    public int indexOf(Object o) {
+//        int index = 0;
+//        Node current = head;
+//        while (current != null) {
+//            if (current.equals(o)) {
+//                return index;
+//            }
+//            index++;
+//            current = current.getNext();
+//        }
+//        if (index == size() && o == null) {
+//            return -1;
+//        } else {
+//            return index;
+//        }
+//
+//    }
 
     public int lastIndexOf(Object o) {
         return 0;
