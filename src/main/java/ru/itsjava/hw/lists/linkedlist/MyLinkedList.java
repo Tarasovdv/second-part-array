@@ -171,26 +171,40 @@ public class MyLinkedList {
         }
     }
 
-//    public int indexOf(Object o) {
-//        int index = 0;
-//        Node current = head;
-//        while (current != null) {
-//            if (current.equals(o)) {
-//                return index;
-//            }
-//            index++;
-//            current = current.getNext();
-//        }
-//        if (index == size() && o == null) {
-//            return -1;
-//        } else {
-//            return index;
-//        }
-//
-//    }
+    public int indexOf(Object o) {
+        int index = 0;
+        Node current = head;
+        while (current != null) {
+            if (current.getValue().equals(o)) {
+                return index;
+            }
+            index++;
+            current = current.getNext();
+        }
+        return -1;
+    }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        int index = 0;
+        int res = 0;
+        Node current = head;
+        if (current.getValue().equals(o) && current.getNext() == null) {
+            return index;
+        }
+        while (current != null) {
+            if (current.getValue().equals(o)) {
+                res = index;
+            }
+            index++;
+            current = current.getNext();
+            if (current.getValue().equals(o)) {
+                res = index;
+            }
+        }
+        if (res > 0) {
+            return res;
+        }
+        return -1;
     }
 
     @Override

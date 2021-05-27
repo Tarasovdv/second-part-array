@@ -10,7 +10,7 @@ public class MyLinkedListPractice {
 
         list.add("0");
         list.add("1");
-        list.add("2");
+        list.add("1");
         list.add("2");
         list.add("2");
         list.add("2");
@@ -22,7 +22,8 @@ public class MyLinkedListPractice {
 //        list.remove("1");
         System.out.println("list = " + list);
         System.out.println("list.size() = " + list.size());
-//        System.out.println("list.indexOf(\"2\") = " + list.indexOf("2"));
+        System.out.println("list.indexOf(\"2\") = " + list.indexOf("2"));
+        System.out.println("list.lastIndexOf(\"2\") = " + list.lastIndexOf("2"));
 
 
 //        System.out.println("list.isEmpty() = " + list.isEmpty());
