@@ -186,7 +186,7 @@ public class MyLinkedList {
 
     public int lastIndexOf(Object o) {
         int index = 0;
-        int res = 0;
+        int res = -1;
         Node current = head;
         if (current.getValue().equals(o) && current.getNext() == null) {
             return index;
@@ -197,14 +197,8 @@ public class MyLinkedList {
             }
             index++;
             current = current.getNext();
-            if (current.getValue().equals(o)) {
-                res = index;
-            }
         }
-        if (res > 0) {
-            return res;
-        }
-        return -1;
+        return res;
     }
 
     @Override
