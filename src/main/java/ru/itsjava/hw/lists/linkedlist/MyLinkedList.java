@@ -188,9 +188,9 @@ public class MyLinkedList {
         int index = 0;
         int res = -1;
         Node current = head;
-        if (current.getValue().equals(o) && current.getNext() == null) {
-            return index;
-        }
+//        if (current.getValue().equals(o) && current.getNext() == null) {
+//            return index;
+//        }
         while (current != null) {
             if (current.getValue().equals(o)) {
                 res = index;

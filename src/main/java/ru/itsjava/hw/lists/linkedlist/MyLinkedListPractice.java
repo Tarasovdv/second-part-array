@@ -7,6 +7,7 @@ public class MyLinkedListPractice {
 
         LinkedList l = new LinkedList();
         MyLinkedList list = new MyLinkedList();
+        MyLinkedList list2 = new MyLinkedList();
 
         list.add("0");
         list.add("1");
@@ -24,6 +25,10 @@ public class MyLinkedListPractice {
         System.out.println("list.size() = " + list.size());
         System.out.println("list.indexOf(\"2\") = " + list.indexOf("2"));
         System.out.println("list.lastIndexOf(\"2\") = " + list.lastIndexOf("2"));
+
+        list2.add("888");
+        list2.add("888");
+        System.out.println("list2.lastIndexOf(\"888\") = " + list2.lastIndexOf("888"));
 
 
 //        System.out.println("list.isEmpty() = " + list.isEmpty());
