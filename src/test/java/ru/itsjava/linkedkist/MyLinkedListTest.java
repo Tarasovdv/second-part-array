@@ -136,4 +136,34 @@ public class MyLinkedListTest {
                 () -> assertEquals(node2, list2.get(0)));
 
     }
+
+    @DisplayName(" должен корректно возвращать индексу первого нахождения")
+    @Test
+    public void shouldHaveIndexOf() {
+
+        MyLinkedList list2 = new MyLinkedList();
+        list2.add("1");
+        list2.add("2");
+        list2.add("2");
+        list2.add("4");
+
+        assertAll("list",
+                () -> assertEquals(1, list2.indexOf("2")));
+
+    }
+
+    @DisplayName(" должен корректно возвращать индексу последнего нахождения")
+    @Test
+    public void shouldHaveLastIndexOf() {
+
+        MyLinkedList list2 = new MyLinkedList();
+        list2.add("1");
+        list2.add("2");
+        list2.add("2");
+        list2.add("2");
+
+        assertAll("list",
+                () -> assertEquals(3, list2.lastIndexOf("2")));
+
+    }
 }
